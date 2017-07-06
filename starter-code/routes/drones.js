@@ -1,12 +1,21 @@
+/*jshint esversion: 6 */
+
 const express = require('express');
 
-// require the Drone model here
-
 const router = express.Router();
+// require the Drone model here
+const Drone = require("../models/drone");
 
-
-router.get('/drones', (req, res, next) => {
+router.get('/', (req, res, next) => {
   // Iteration #2
+  Drone.find({}, (error, drones) => {
+    if (error) {
+      next(error);
+      return;
+    } else {
+      res.render("drones/index", { drones });
+    }
+  });
 });
 
 

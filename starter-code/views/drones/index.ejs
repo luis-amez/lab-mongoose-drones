@@ -1,0 +1,7 @@
+<h2>Available Drones</h2>
+
+<ul>
+  <% drones.forEach((drone) => { %>
+    <li><%= drone.droneName %>: propellers <%= drone.propellers%> / speed <%= drone.maxSpeed %></li>
+  <% }) %>
+</ul>
